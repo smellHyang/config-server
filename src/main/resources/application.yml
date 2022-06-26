@@ -1,0 +1,28 @@
+server:
+  port: 8888
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+    enabled: true
+
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/smellHyang/msa-config.git
+          username: { username }
+          password: { password }
+
+          #Spring cloud config는 remote에 있는 레포지토리를 Clone
+          #강제로 git-clone 하기위한 설정
+#          force-pull: true
+#          timeout: 30
+
+#          search-paths:
+#            - 'yanolja'
+#            - 'spring-service/**'
